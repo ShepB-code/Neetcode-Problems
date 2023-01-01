@@ -2,12 +2,11 @@ class Solution:
     def isPalindrome(self, s: str) -> bool:
         beg: int = 0
         end: int = len(s) - 1
-
         while beg < end:
             currBeg = s[beg]
             currEnd = s[end]
             # make sure beg and end are numeric
-            if s[beg].isalpha() and s[end].isalpha():
+            if s[beg].isalnum() and s[end].isalnum():
                 # convert both to lower
                 currBeg = s[beg].lower()
                 currEnd = s[end].lower()
@@ -18,10 +17,12 @@ class Solution:
                 end -= 1
             else:
 
-                if not s[beg].isalpha():
+                if not s[beg].isalnum():
                     beg += 1
-                if not s[end].isalpha():
+                if not s[end].isalnum():
                     end -= 1
+                
+        
 
         return True
 
@@ -29,4 +30,5 @@ class Solution:
 
 s = Solution()
 test = "A man, a plan, a canal: Panama"
-print(s.isPalindrome(test))
+test2 = "0P"
+print(s.isPalindrome(test2))
