@@ -9,7 +9,12 @@ class ListNode:
         
 class Solution:
     def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
-        
+        if not list1:
+            return list2
+        elif not list2:
+            return list1
+
+            
         # choose a head
         if list1.val < list2.val:
             newList = list1
